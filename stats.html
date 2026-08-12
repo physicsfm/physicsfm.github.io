@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem("pfm-theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Статистика — Physics FM</title>
+<meta name="description" content="Статистика по участникам олимпиады и модерация отзывов — панель для жюри.">
+<link rel="icon" type="image/png" href="assets/physics-fm-mark.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body style="--accent:var(--gold);">
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="index.html">
+      <img src="assets/physics-fm-mark.png" alt="Physics FM" class="brand-mark">
+      <span class="brand-word">Physics FM<small>Олимпиада по физике</small></span>
+    </a>
+    <div class="head-actions">
+      <a class="cabinet-btn" href="cabinet.html"><span class="dot-ic"></span><span class="label">Кабинет</span></a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема"><span class="tt-icon tt-sun">☀</span><span class="tt-icon tt-moon">☾</span></button>
+      <button class="nav-toggle" aria-label="Меню">☰</button>
+    </div>
+    <nav class="channels-nav">
+      <a href="index.html" style="--chcolor:var(--amber)"><span class="num">88.0</span> Главная</a>
+      <a href="about.html" style="--chcolor:var(--cyan)"><span class="num">91.2</span> О нас</a>
+      <a href="olympiad.html" style="--chcolor:var(--magenta)"><span class="num">94.6</span> Олимпиада</a>
+      <a href="articles.html" style="--chcolor:var(--coral)"><span class="num">97.8</span> Статьи</a>
+      <a href="register.html" style="--chcolor:var(--gold)"><span class="num">101.2</span> Регистрация</a>
+      <a href="contacts.html" style="--chcolor:var(--violet)"><span class="num">104.5</span> Другое</a>
+    </nav>
+  </div>
+</header>
+
+<!-- показывается, пока не подтвердили, что вы жюри -->
+<section id="gateSection" class="jury-gate">
+  <div class="ic">◆</div>
+  <h2>Только для жюри</h2>
+  <p style="color:var(--muted);" id="gateMessage">Проверяем доступ…</p>
+  <a class="btn btn-primary" href="cabinet.html" style="margin-top:10px;">Перейти в личный кабинет</a>
+</section>
+
+<!-- основной контент, показывается только жюри -->
+<div id="statsContent" style="display:none;">
+
+  <section class="hero no-media">
+    <div class="wrap">
+      <div>
+        <span class="chip">Только для жюри</span>
+        <h1>Статистика<br>и <span class="accent">модерация</span></h1>
+        <p class="lede">Всё об участниках олимпиады в одном месте: сколько зарегистрировалось, из каких классов и городов, и что ждёт вашего решения.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="dash-grid" id="overviewStats">
+        <div class="dash-stat"><div class="label">Сейчас на сайте</div><div class="val" id="statOnline" style="color:var(--lime);">—</div></div>
+        <div class="dash-stat"><div class="label">Всего участников</div><div class="val" id="statTotal">—</div></div>
+        <div class="dash-stat"><div class="label">7 класс</div><div class="val" id="statG7">—</div></div>
+        <div class="dash-stat"><div class="label">8 класс</div><div class="val" id="statG8">—</div></div>
+        <div class="dash-stat"><div class="label">Городов</div><div class="val" id="statCities">—</div></div>
+        <div class="dash-stat"><div class="label">Школ</div><div class="val" id="statSchools">—</div></div>
+        <div class="dash-stat"><div class="label">В команде жюри</div><div class="val" id="statJuryCount">—</div></div>
+        <div class="dash-stat"><div class="label">Отзывов всего</div><div class="val" id="statReviewsTotal">—</div></div>
+        <div class="dash-stat"><div class="label">На модерации</div><div class="val" id="statPendingCount">—</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="tracking wrap">
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Графики</span>
+          <h2>Разбивка по участникам</h2>
+        </div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h4>По классам</h4>
+          <div id="gradeDonut"><p class="empty-note">Загрузка…</p></div>
+        </div>
+        <div class="chart-card">
+          <h4>Регистрации по дням</h4>
+          <div id="regTimeline"><p class="empty-note">Загрузка…</p></div>
+        </div>
+        <div class="chart-card">
+          <h4>Топ городов</h4>
+          <div id="cityChart"><p class="empty-note">Загрузка…</p></div>
+        </div>
+        <div class="chart-card">
+          <h4>Топ школ</h4>
+          <div id="schoolChart"><p class="empty-note">Загрузка…</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="tracking wrap">
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Все участники</span>
+          <h2>Список и поиск</h2>
+        </div>
+      </div>
+      <div class="field" style="max-width:360px; margin-bottom:20px;">
+        <label for="participantSearch">Поиск по имени, школе, городу, Telegram</label>
+        <input type="text" id="participantSearch" placeholder="начните вводить…">
+      </div>
+      <table class="guide" id="participantsTable">
+        <thead>
+          <tr><th>Имя</th><th>Класс</th><th>Школа</th><th>Город</th><th>Telegram</th><th>Дата</th></tr>
+        </thead>
+        <tbody id="participantsBody">
+          <tr><td colspan="6" style="color:var(--muted);">Загрузка…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="tracking wrap">
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Модерация</span>
+          <h2>Отзывы на модерации</h2>
+          <p class="sub">Здесь появляется всё, что нужно проверить перед публикацией.</p>
+        </div>
+      </div>
+      <div id="reviewModerationList">
+        <p style="color:var(--muted);">Загрузка…</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="bars-strip">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <span class="brand-word" style="font-size:1rem;">Physics FM</span>
+          <p>Круглосуточная олимпиада по физике для 7–8 классов. Задачи, разборы и результаты — в эфире каждый сезон.</p>
+        </div>
+        <div>
+          <h4>Каналы</h4>
+          <ul>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="olympiad.html">Олимпиада Physics FM</a></li>
+            <li><a href="articles.html">Статьи</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Связь</h4>
+          <ul>
+            <li><a href="register.html">Регистрация</a></li>
+            <li><a href="cabinet.html">Личный кабинет</a></li>
+            <li><a href="contacts.html">Доступ и апелляция</a></li>
+            <li><a href="https://t.me/h24x7d" target="_blank" rel="noopener">Telegram-канал</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© PHYSICS FM — вещание ведётся круглосуточно</span>
+        <span>СЕЗОН 03 / 11.07.2026</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-client.js"></script>
+<script src="theme.js"></script>
+<script src="script.js"></script>
+<script src="stats.js"></script>
+</body>
+</html>
