@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem("pfm-theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Статьи — Physics FM</title>
+<meta name="description" content="Статьи от жюри и авторов Physics FM: разборы задач, истории из физики и материалы для подготовки.">
+<link rel="icon" type="image/png" href="assets/physics-fm-mark.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body style="--accent:var(--coral);">
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="index.html">
+      <img src="assets/physics-fm-mark.png" alt="Physics FM" class="brand-mark">
+      <span class="brand-word">Physics FM<small>Олимпиада по физике</small></span>
+    </a>
+    <div class="head-actions">
+      <a class="cabinet-btn" href="cabinet.html"><span class="dot-ic"></span><span class="label">Кабинет</span></a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема"><span class="tt-icon tt-sun">☀</span><span class="tt-icon tt-moon">☾</span></button>
+      <button class="nav-toggle" aria-label="Меню">☰</button>
+    </div>
+    <nav class="channels-nav">
+      <a href="index.html" style="--chcolor:var(--amber)"><span class="num">88.0</span> Главная</a>
+      <a href="about.html" style="--chcolor:var(--cyan)"><span class="num">91.2</span> О нас</a>
+      <a href="olympiad.html" style="--chcolor:var(--magenta)"><span class="num">94.6</span> Олимпиада</a>
+      <a href="articles.html" class="current" style="--chcolor:var(--coral)"><span class="num">97.8</span> Статьи</a>
+      <a href="register.html" style="--chcolor:var(--gold)"><span class="num">101.2</span> Регистрация</a>
+      <a href="contacts.html" style="--chcolor:var(--violet)"><span class="num">104.5</span> Другое</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero no-media">
+  <div class="wrap">
+    <div>
+      <span class="chip">97.8 · Статьи</span>
+      <h1>Тексты <span class="accent">между турами</span></h1>
+      <p class="lede">Разборы красивых задач, истории из физики и подборки материалов — от жюри и приглашённых авторов.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Материалы</span>
+        <h2>Материалы</h2>
+      </div>
+    </div>
+
+    <div class="materials-gate">
+      <div class="gate-locked">
+        <span class="lock-ic">🔒</span>
+        <h3>Материалы доступны участникам</h3>
+        <p>Войдите в личный кабинет, чтобы читать статьи и разборы задач.</p>
+        <div class="gate-actions">
+          <a class="btn btn-primary" href="cabinet.html">Войти в кабинет</a>
+          <a class="btn btn-ghost" href="register.html">Регистрация</a>
+        </div>
+      </div>
+      <div class="gate-unlocked">
+    <div class="materials-controls">
+      <div class="field" style="max-width:360px; margin-bottom:0;">
+        <label for="materialSearch">Поиск по ключевым словам</label>
+        <input type="text" id="materialSearch" placeholder="например, «ускорение»">
+      </div>
+      <div class="tag-filters" id="tagFilters"></div>
+    </div>
+
+    <div class="card-grid" id="materialsGrid">
+      <div class="article-card" data-tags="теория">
+        <div class="tags">
+          <span class="tag">Теория</span>
+        </div>
+        <h3>Тангенциальное и нормальное ускорения. Радиус кривизны траектории</h3>
+        <p>Как раскладывать ускорение на две составляющие и находить радиус кривизны траектории — с выводом формул и разбором классических примеров (бросок под углом, парабола, циклоида).</p>
+        <div class="meta">
+          <span>Хомутов Всеволод</span>
+          <a href="assets/materials/article-radius-krivizny.pdf" target="_blank" rel="noopener" style="color:var(--accent);">Читать PDF →</a>
+        </div>
+      </div>
+      <div class="article-card" data-tags="разбор">
+        <div class="tags">
+          <span class="tag">Разбор</span>
+        </div>
+        <h3>Звёздочка с ошибкой</h3>
+        <p>Задача о минимальном времени прохождения круга по треку — честное решение через дифференциальное уравнение и разбор, почему ответ в популярном задачнике на самом деле неверен.</p>
+        <div class="meta">
+          <span>Хомутов Всеволод</span>
+          <a href="assets/materials/article-zvezdochka.pdf" target="_blank" rel="noopener" style="color:var(--accent);">Читать PDF →</a>
+        </div>
+      </div>
+      <div class="article-card" data-tags="разбор">
+        <div class="tags">
+          <span class="tag">Разбор</span>
+        </div>
+        <h3>Мальчик и змей</h3>
+        <p>Кинематика с переменной длиной нити: как перейти в систему отсчёта мальчика, применить «закон палочки» для мгновенного центра скоростей и найти скорость узелка на сматывающейся нити.</p>
+        <div class="meta">
+          <span>Хомутов Всеволод</span>
+          <a href="assets/materials/article-malchik-i-zmey.pdf" target="_blank" rel="noopener" style="color:var(--accent);">Читать PDF →</a>
+        </div>
+      </div>
+      <div class="article-card" data-tags="научпоп">
+        <div class="tags">
+          <span class="tag">Научпоп</span>
+        </div>
+        <h3>Аэрогель: «замороженный дым» и «твёрдый воздух»</h3>
+        <p>Материал на 97% состоящий из пустоты — как его делают через сверхкритическую сушку, почему он держит вес в 2000 раз больше своего и зачем нужен полярникам и пожарным.</p>
+        <div class="meta">
+          <span>Редакция</span>
+          <a href="assets/materials/article-aerogel.pdf" target="_blank" rel="noopener" style="color:var(--accent);">Читать PDF →</a>
+        </div>
+      </div>
+      <div class="article-card" data-tags="научпоп">
+        <div class="tags">
+          <span class="tag">Научпоп</span>
+        </div>
+        <h3>Шнобелевская премия: «британским учёным» за заслуги</h3>
+        <p>История пародии на Нобелевку — от плавающих мёртвых форелей до пьяных червей в хроматографе, и почему учёным иногда тоже нужно посмеяться над собой.</p>
+        <div class="meta">
+          <span>Редакция</span>
+          <a href="assets/materials/article-ignobel.pdf" target="_blank" rel="noopener" style="color:var(--accent);">Читать PDF →</a>
+        </div>
+      </div>
+      <div class="article-card" data-tags="научпоп">
+        <div class="tags">
+          <span class="tag">Научпоп</span>
+        </div>
+        <h3>MOF — опять повышенная дырчатость…</h3>
+        <p>Металлоорганические каркасы, за которые дали Нобелевку по химии 2025 года — как их синтезируют в автоклаве и почему дырявый кристалл умеет ловить молекулы и доставлять лекарства точно в цель.</p>
+        <div class="meta">
+          <span>Редакция</span>
+          <a href="assets/materials/article-mof.pdf" target="_blank" rel="noopener" style="color:var(--accent);">Читать PDF →</a>
+        </div>
+      </div>
+    </div>
+    <p id="materialsEmpty" style="display:none; color:var(--muted);">Ничего не найдено — попробуйте другой запрос или сбросьте фильтр.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="tracking wrap">
+
+<section class="tight">
+  <div class="wrap">
+    <div class="news-card" style="grid-template-columns:1fr;">
+      <div>
+        <h3 style="margin-top:0;">Хотите написать для Physics FM?</h3>
+        <p class="body-text">Предложите тему для статьи в Telegram-канале редакции — рассмотрим и обсудим публикацию.</p>
+        <a class="btn btn-primary" href="contacts.html">Предложить тему</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="bars-strip">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-word" style="font-size:1rem;">Physics FM</span>
+        <p>Круглосуточная олимпиада по физике для 7–8 классов. Задачи, разборы и результаты — в эфире каждый сезон.</p>
+      </div>
+      <div>
+        <h4>Каналы</h4>
+        <ul>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="olympiad.html">Олимпиада Physics FM</a></li>
+          <li><a href="articles.html">Статьи</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Связь</h4>
+        <ul>
+          <li><a href="register.html">Регистрация</a></li>
+          <li><a href="cabinet.html">Личный кабинет</a></li>
+          <li><a href="contacts.html">Доступ и апелляция</a></li>
+          <li><a href="https://t.me/h24x7d" target="_blank" rel="noopener">Telegram-канал</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© PHYSICS FM — вещание ведётся круглосуточно</span>
+      <span>СЕЗОН 03 / 11.07.2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-client.js"></script>
+<script src="theme.js"></script>
+<script src="script.js"></script>
+<script src="materials-gate.js"></script>
+<script src="materials-filter.js"></script>
+</body>
+</html>

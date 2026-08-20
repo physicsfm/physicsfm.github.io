@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <clipPath id="scr">
+      <rect x="13" y="21" width="38" height="28" rx="3"/>
+    </clipPath>
+  </defs>
+  <path d="M22 8 L32 16 L42 8" stroke="#1a1d24" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <rect x="8" y="16" width="48" height="38" rx="7" fill="#20242c"/>
+  <g clip-path="url(#scr)">
+    <rect x="13" y="21" width="5.43" height="28" fill="#c7c7c7"/>
+    <rect x="18.43" y="21" width="5.43" height="28" fill="#e0d24a"/>
+    <rect x="23.86" y="21" width="5.43" height="28" fill="#3fc7e0"/>
+    <rect x="29.29" y="21" width="5.43" height="28" fill="#4fcf6a"/>
+    <rect x="34.72" y="21" width="5.43" height="28" fill="#e14fa0"/>
+    <rect x="40.15" y="21" width="5.43" height="28" fill="#e14a3f"/>
+    <rect x="45.58" y="21" width="5.43" height="28" fill="#4a5fe1"/>
+  </g>
+  <rect x="18" y="56" width="28" height="4" rx="2" fill="#20242c"/>
+</svg>

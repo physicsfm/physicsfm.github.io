@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem("pfm-theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Регистрация — Physics FM</title>
+<meta name="description" content="Подать заявку на участие в олимпиаде Physics FM для 7–8 классов.">
+<link rel="icon" type="image/png" href="assets/physics-fm-mark.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body style="--accent:var(--gold);">
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="index.html">
+      <img src="assets/physics-fm-mark.png" alt="Physics FM" class="brand-mark">
+      <span class="brand-word">Physics FM<small>Олимпиада по физике</small></span>
+    </a>
+    <div class="head-actions">
+      <a class="cabinet-btn" href="cabinet.html"><span class="dot-ic"></span><span class="label">Кабинет</span></a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема"><span class="tt-icon tt-sun">☀</span><span class="tt-icon tt-moon">☾</span></button>
+      <button class="nav-toggle" aria-label="Меню">☰</button>
+    </div>
+    <nav class="channels-nav">
+      <a href="index.html" style="--chcolor:var(--amber)"><span class="num">88.0</span> Главная</a>
+      <a href="about.html" style="--chcolor:var(--cyan)"><span class="num">91.2</span> О нас</a>
+      <a href="olympiad.html" style="--chcolor:var(--magenta)"><span class="num">94.6</span> Олимпиада</a>
+      <a href="articles.html" style="--chcolor:var(--coral)"><span class="num">97.8</span> Статьи</a>
+      <a href="register.html" class="current" style="--chcolor:var(--gold)"><span class="num">101.2</span> Регистрация</a>
+      <a href="contacts.html" style="--chcolor:var(--violet)"><span class="num">104.5</span> Другое</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero no-media">
+  <div class="wrap">
+    <div>
+      <span class="chip">101.2 · Регистрация</span>
+      <h1>Запишитесь<br>в <span class="accent">эфир</span></h1>
+      <p class="lede">Заявка занимает пару минут. Придумайте пароль — и кабинет откроется сразу, без писем на почту.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div class="form-card">
+          <form id="regForm" novalidate>
+            <div class="field">
+              <label for="name">ФИО участника <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Иванова Мария" required>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="grade">Класс <span class="req">*</span></label>
+                <select id="grade" name="grade" required>
+                  <option value="" disabled selected>Выберите класс</option>
+                  <option value="7">7 класс</option>
+                  <option value="8">8 класс</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="city">Город <span class="req">*</span></label>
+                <input type="text" id="city" name="city" placeholder="Таллин" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="school">Школа <span class="req">*</span></label>
+              <input type="text" id="school" name="school" placeholder="Номер или название школы" required>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="telegram">Telegram <span class="req">*</span></label>
+                <input type="text" id="telegram" name="telegram" placeholder="@username" pattern="^@?[A-Za-z0-9_]{4,}$" required>
+              </div>
+              <div class="field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="для входа в кабинет" required>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="password">Пароль <span class="req">*</span></label>
+                <input type="password" id="password" name="password" placeholder="не короче 6 символов" minlength="6" required>
+              </div>
+              <div class="field">
+                <label for="password2">Повторите пароль <span class="req">*</span></label>
+                <input type="password" id="password2" name="password2" placeholder="ещё раз" minlength="6" required>
+              </div>
+            </div>
+            <p class="hint">Запомните пароль — он понадобится для входа в кабинет. Telegram — чтобы держать связь и присылать важные объявления.</p>
+
+            <div class="check-field">
+              <input type="checkbox" id="agree" name="agree" required>
+              <label for="agree">Согласен(на) на обработку персональных данных для участия в олимпиаде. Если участнику меньше 13 лет, форму заполняет родитель или другой законный представитель.</label>
+            </div>
+
+            <div id="regError" class="hint" style="display:none; color:var(--coral); margin-bottom:14px;"></div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Отправить заявку</button>
+          </form>
+        </div>
+
+        <div class="success-panel" id="successPanel">
+          <span class="sig"><span class="dot-ic"></span> Сигнал принят</span>
+          <h2 style="margin-bottom:10px;">Готово!</h2>
+          <p style="color:var(--muted);">Открываем ваш личный кабинет…</p>
+        </div>
+
+        <div class="form-card" id="alreadyRegisteredPanel" style="display:none;">
+          <span class="sig" style="color:var(--gold);"><span class="dot-ic" style="background:var(--gold); box-shadow:0 0 6px 2px rgba(255,207,77,.6);"></span> Уже в эфире</span>
+          <h2 style="margin-bottom:10px;">Вы уже зарегистрированы</h2>
+          <p style="color:var(--muted);">Этот браузер уже вошёл в личный кабинет — заявку повторно отправлять не нужно.</p>
+          <a class="btn btn-primary" href="cabinet.html">Перейти в личный кабинет</a>
+        </div>
+      </div>
+
+      <aside class="fact-panel">
+        <h3>Что дальше</h3>
+        <div class="step" style="border-bottom:1px solid var(--line); padding:14px 0;">
+          <span class="n" style="font-size:1.1rem;">01</span>
+          <div><p style="margin:0; font-size:.88rem; color:var(--muted);">Заполните форму и придумайте пароль.</p></div>
+        </div>
+        <div class="step" style="padding:14px 0 0;">
+          <span class="n" style="font-size:1.1rem;">02</span>
+          <div><p style="margin:0; font-size:.88rem; color:var(--muted);">Кабинет откроется сразу — следите за турами и результатами там.</p></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="bars-strip">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-word" style="font-size:1rem;">Physics FM</span>
+        <p>Круглосуточная олимпиада по физике для 7–8 классов. Задачи, разборы и результаты — в эфире каждый сезон.</p>
+      </div>
+      <div>
+        <h4>Каналы</h4>
+        <ul>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="olympiad.html">Олимпиада Physics FM</a></li>
+          <li><a href="articles.html">Статьи</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Связь</h4>
+        <ul>
+          <li><a href="register.html">Регистрация</a></li>
+          <li><a href="cabinet.html">Личный кабинет</a></li>
+          <li><a href="contacts.html">Доступ и апелляция</a></li>
+          <li><a href="https://t.me/h24x7d" target="_blank" rel="noopener">Telegram-канал</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© PHYSICS FM — вещание ведётся круглосуточно</span>
+      <span>СЕЗОН 03 / 11.07.2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-client.js"></script>
+<script src="theme.js"></script>
+<script src="script.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>
